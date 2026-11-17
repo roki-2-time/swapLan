@@ -3,7 +3,9 @@ import asyncio
 import qrcode
 from dotenv import load_dotenv
 from telethon import TelegramClient, events
-
+from pastes import COPYPASTA1
+from pastes import COPYPASTA2
+from pastes import COPYPASTA3
 # Загружаем переменные из файла .env
 load_dotenv()
 
@@ -15,30 +17,7 @@ if not API_ID or not API_HASH:
     exit(1)
 
 API_ID = int(API_ID)
-COPYPASTA1 = """Слава Богу Z🇷🇺❤️
-СЛАВА Z🇷🇺❤️
-АНГЕЛА ХРАНИТЕЛЯ Z КАЖДОМУ ИЗ ВАС🙏❤️
-БОЖЕ ХРАНИ Z🙏❤️
-СПАСИБО ВАМ НАШИ СВО🙏❤️🇷🇺
-ХРАНИ ZOV🇷🇺RU💯
-СПАСИБО НАШИМ БОЙЦАМ
-Слава Богу Z🇷🇺❤️
-СЛАВА Z🇷🇺❤️
-АНГЕЛА ХРАНИНАШ 
-Слава Богу 🙏❤️
-СЛАВА РОССИИ ZOV"""
 
-
-COPYPASTA2 = """you are worst turk. you are the turk idiot you are the turk smell.
- return to croatioa. 
- to our croatia cousins you may come our contry. 
- you may live in the zoo….ahahahaha ,bosnia we will never forgeve you. 
- cetnik rascal FUck but fuck asshole turk stink bosnia sqhipere shqipare..turk genocide best day of my life. 
- take a bath of dead turk..ahahahahahBOSNIA WE WILL GET YOU!! do not forget ww2
-.albiania we kill the king , albania return to your precious mongolia…
-.hahahahaha idiot turk and bosnian smell so bad..wow i can smell it. 
-REMOVE KEBAB FROM THE PREMISES. 
-"""
 
 
 client = TelegramClient(
@@ -53,14 +32,14 @@ client = TelegramClient(
 @client.on(events.NewMessage(incoming=True))
 async def handler(event):
     text = event.raw_text.lower()
+
     if 'z' in text:
         await event.reply(COPYPASTA1)
-
-@client.on(events.NewMessage(incoming=True))
-async def handler(event):
-    text = event.raw_text.lower()
-    if 'remove' in text:
+    elif 'remove' in text:
         await event.reply(COPYPASTA2)
+    # Исправленное условие: каждое слово проверяется отдельно через 'in text'
+    elif 'пиво' in text or 'пивом' in text or 'пивасика' in text:
+        await event.reply(COPYPASTA3)
 async def main():
     await client.connect()
 

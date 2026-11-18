@@ -33,7 +33,7 @@ client = TelegramClient(
 async def handler(event):
     text = event.raw_text.lower()
 
-    if 'z' in text:
+    if 'z' in text or 'сво' in text:
         await event.reply(COPYPASTA1)
     elif 'remove' in text:
         await event.reply(COPYPASTA2)

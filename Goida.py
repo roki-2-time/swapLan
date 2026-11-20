@@ -2,7 +2,7 @@ import os
 import asyncio
 import qrcode
 from dotenv import load_dotenv
-from pastes import COPYPASTA1, COPYPASTA4
+from pastes import COPYPASTA1
 from pastes import COPYPASTA2
 from pastes import COPYPASTA3
 from telethon import TelegramClient, events
@@ -31,14 +31,22 @@ client = TelegramClient(
 
 @client.on(events.NewMessage(incoming=True))
 async def handler(event):
-
+    if not  event.is_private:
+        return
     text = event.raw_text.lower()
 
     reply_text = None
-    if "негр" in text or "сможешь" in text or "сможет" in text:
-        reply_text = COPYPASTA4
-    elif "remove" in text:
+
+    if "remove" in text:
         reply_text = COPYPASTA2
+    if "негр" in text or "сможешь" in text or "сможет" in text:
+        await client.send_file(
+            event.chat_id,
+            "negr.oga",
+            voice_note=True,
+            reply_to=event.id
+        )
+        return
     elif "пиво" in text or "пивом" in text or "пивасика" in text:
         reply_text = COPYPASTA3
     elif  "zov" in text or "Путин" in text:

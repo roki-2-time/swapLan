@@ -40,7 +40,7 @@ async def handler(event):
     # Исправленное условие: каждое слово проверяется отдельно через 'in text'
     elif 'пиво' in text or 'пивом' in text or 'пивасика' in text:
         await event.reply(COPYPASTA3)
-    elif 'негр' in text or 'нигга' in text or 'сможет' in text:
+    elif 'негр' in text or 'сможешь' in text or 'сможет' in text:
         await event.reply(COPYPASTA4)
 async def main():
     await client.connect()

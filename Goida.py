@@ -33,13 +33,15 @@ client = TelegramClient(
 async def handler(event):
     text = event.raw_text.lower()
 
-    if 'z' in text or 'сво' in text:
+    if 'z' in text or 'сво' in text or 'zov' in text or 'Путин' in text:
         await event.reply(COPYPASTA1)
     elif 'remove' in text:
         await event.reply(COPYPASTA2)
     # Исправленное условие: каждое слово проверяется отдельно через 'in text'
     elif 'пиво' in text or 'пивом' in text or 'пивасика' in text:
         await event.reply(COPYPASTA3)
+    elif 'негр' in text or 'нигга' in text or 'сможет' in text:
+        await event.reply(COPYPASTA4)
 async def main():
     await client.connect()
 

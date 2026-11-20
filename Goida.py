@@ -3,7 +3,7 @@ import asyncio
 import qrcode
 from dotenv import load_dotenv
 from telethon import TelegramClient, events
-from pastes import COPYPASTA1
+from pastes import COPYPASTA1, COPYPASTA4
 from pastes import COPYPASTA2
 from pastes import COPYPASTA3
 # Загружаем переменные из файла .env

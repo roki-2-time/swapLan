@@ -31,8 +31,8 @@ client = TelegramClient(
 
 @client.on(events.NewMessage(incoming=True))
 async def handler(event):
-    if not  event.is_private:
-        return
+    #if not  event.is_private:
+    #    return
     text = event.raw_text.lower()
 
     reply_text = None

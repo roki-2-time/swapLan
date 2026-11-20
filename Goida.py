@@ -41,7 +41,7 @@ async def handler(event):
         reply_text = COPYPASTA2
     elif "пиво" in text or "пивом" in text or "пивасика" in text:
         reply_text = COPYPASTA3
-    elif  "zov" in text or "путин" in text:
+    elif  "zov" in text or "Путин" in text:
         reply_text = COPYPASTA1
 
 
